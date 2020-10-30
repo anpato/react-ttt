@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, NavLink } from 'react-router-dom'
+import './App.css'
+import Game from './pages/Game'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/game">Play Game</NavLink>
+      </nav>
+      <main>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            component={() => <div>This is the home page</div>}
+          />
+          <Route path="/game" component={Game} />
+        </Switch>
+      </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
